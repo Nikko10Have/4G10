@@ -76,4 +76,4 @@ mask = (time >= -150) & (time <= 300)
 X = data["X"][:, :, mask]
 X = X.reshape(X.shape[0], X.shape[1] * X.shape[2])
 V_m, Z = PCA_Vm_Z(X)
-np.savez("Exercise_2C.npz", Z=Z, V=V_m, times=time[mask])
+np.savez("Exercise_2.npz", Z=Z, V=V_m, times=time[mask])

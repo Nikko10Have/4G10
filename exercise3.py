@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cond_color as cc
 
-data = np.load("Exercise_2C.npz")
+data = np.load("Exercise_2.npz")
 Z = data["Z"]
 
 colors = cc.get_colors(Z[0, :, 0], Z[1, :, 0])
