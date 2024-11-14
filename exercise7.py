@@ -15,6 +15,7 @@ for i, values in enumerate(X):
     for j in C:
         X[i][j][idx:] = 2 * X[i][j][idx] - X[i][j][idx:]
 
+
 x_normal = norm_rate(X)
 X = mean_center(x_normal)
 

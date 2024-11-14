@@ -1,10 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import os
-
-#cwd = os.getcwd()  # Get the current working directory (cwd)
-#files = os.listdir(cwd)  # Get all the files in that directory
-#print("Files in %r: %s" % (cwd, files))
 
 with open("psths.npz", "rb") as f:
     data = np.load(f)
@@ -30,17 +25,17 @@ for a, neuron in enumerate(q):
                 color=colors[a], linestyle=line_styles[b])
 
 #Setup legend
-handles = []
-labels = []
+hand = []
+lab = []
 for i, neuron in enumerate(q):
-    handles.append(plt.Line2D([0], [0], color=colors[i], lw=2))
-    labels.append(f"Neuron {neuron}")
+    hand.append(plt.Line2D([0], [0], color=colors[i], lw=2))
+    lab.append(f"Neuron {neuron}")
 for j, condition in enumerate(z):
-    handles.append(plt.Line2D([0], [0], color="black", lw=2, linestyle=line_styles[j]))
-    labels.append(f"Condition {condition}")
+    hand.append(plt.Line2D([0], [0], color="black", lw=2, linestyle=line_styles[j]))
+    lab.append(f"Condition {condition}")
 
 # Legend and Labels
-ax.legend(handles, labels, ncol=4, fontsize="x-small", markerscale=0.5)
+ax.legend(hand, lab, ncol=4, fontsize="x-small", markerscale=0.5)
 ax.set_xlabel("Time (ms)")
 ax.set_ylabel("Firing Rate (Hz)")
 ax.set_title("PSTHs")
