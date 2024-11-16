@@ -41,6 +41,6 @@ print(np.max(delta_A))
 
 fig, ax = plt.subplots()
 im = ax.imshow(delta_A, cmap="BuPu_r")
-ax.set_title("A")
+ax.set_title("Error in A")
 fig.colorbar(im)
 plt.show()

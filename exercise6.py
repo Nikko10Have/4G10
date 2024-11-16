@@ -32,7 +32,7 @@ for q in range(3):
 
     for i in range(30):
         ax.plot(Z_proj[0, i, : idx + 1], Z_proj[1, i, : idx + 1],
-                color=colors_1[i])
+                color=colors_1[i], alpha=0.5)
         cond_color.plot_start(Z_proj[0, i, 0], Z_proj[1, i, 0],
                               colors_1[i], ax=ax, markersize=15)
         cond_color.plot_end(Z_proj[0, i, idx], Z_proj[1, i, idx],
@@ -42,7 +42,7 @@ for q in range(3):
                                      Z_proj[1, :, idx])
     for i in range(30):
         ax.plot(Z_proj[0, i, idx:], Z_proj[1, i, idx:],
-                color=colors_2[i], alpha=0.25)
+                color=colors_2[i], alpha=0.2)
         cond_color.plot_start(Z[0, i, 0], Z[1, i, 0],
                               colors_2[i], ax=ax, markersize=15)
         cond_color.plot_end(Z_proj[0, i, -1], Z_proj[1, i, -1],

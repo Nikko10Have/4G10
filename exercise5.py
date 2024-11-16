@@ -14,6 +14,8 @@ def Z_proj(Z, i):
     eigvalues = eigvalues[idx]
     eigvectors = eigvectors[:, idx]
 
+    for n in range(len(eigvalues)):
+        print(eigvalues[n], ": \n ", eigvectors[n], "\n")
     # Find P with largest eigenval
     P = (np.stack(((eigvectors[:, i].real) / np.linalg.norm(eigvectors[:, i].real),
             eigvectors[:, i].imag / np.linalg.norm(eigvectors[:, i].imag),),axis=1)).T
@@ -50,10 +52,10 @@ Z = Z[:, :, mask]
 
 
 Z_1, P_fr = Z_proj(Z, 0)
-plot_trajectory(Z_1, "Plane of 1st FR")
-Z_2, P_fr1 = Z_proj(Z, 1)
-plot_trajectory(Z_2, "Plane of 2nd FR")
-Z_3, P_fr2 = Z_proj(Z, 2)
-plot_trajectory(Z_3, "Plane of 3rd FR")
+plot_trajectory(Z_1, "Fastest Rotation")
+#Z_2, P_fr1 = Z_proj(Z, 1)
+#plot_trajectory(Z_2, "2nd Fastest Rotation ")
+#Z_3, P_fr2 = Z_proj(Z, 2)
+#plot_trajectory(Z_3, "3rd Fastest Rotation ")
 
-np.savez("Exercise_5.npz", P=[P_fr, P_fr1, P_fr2], Z_1=Z_1, Z_2=Z_2, Z_3=Z_3)
+#np.savez("Exercise_5.npz", P=[P_fr, P_fr1, P_fr2], Z_1=Z_1, Z_2=Z_2, Z_3=Z_3)

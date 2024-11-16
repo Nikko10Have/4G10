@@ -15,17 +15,16 @@ for i, values in enumerate(X):
     for j in C:
         X[i][j][idx:] = 2 * X[i][j][idx] - X[i][j][idx:]
 
-
-x_normal = norm_rate(X)
-X = mean_center(x_normal)
+x_norm = norm_rate(X)
+X = mean_center(x_norm)
 
 time = data["times"]
 mask = (time >= -150) & (time <= 300)
 time = time[mask]
 X = X[:, :, mask]
-X_shape = X.shape
-X = X.reshape(X_shape[0], X_shape[1] * X_shape[2])
+X_sh = X.shape
+X = X.reshape(X_sh[0], X_sh[1] * X_sh[2])
 V_m, Z = PCA_Vm_Z(X)
 
 Z_proj, P = Z_proj(Z, 0)
-plot_trajectory(Z_proj, "Plane of 1st FR Distorted Data")
+plot_trajectory(Z_proj, "Distorted Data: Plane of Fastest Rotation")

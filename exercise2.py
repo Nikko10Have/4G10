@@ -21,8 +21,9 @@ def norm_rate(fireRates):
 
 # Plot Histogram of Max Rates
 a = X.max(axis=(1, 2))
+print(max(a))
 _, ax = plt.subplots()
-ax.hist(a, bins=20, color=(0,102/255,204/255))
+ax.hist(a, bins=29, color=(0,102/255,204/255))
 
 ax.set_xlabel("Max Firing Rate (Hz)")
 ax.set_ylabel("Number of Neurons")

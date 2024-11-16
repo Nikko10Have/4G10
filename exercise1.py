@@ -43,9 +43,10 @@ plt.show()
 
 # Population Average
 pop_avg = np.mean(X, axis=(0, 1))
-
+base_rate = np.mean(pop_avg[0:30])
 fig, ax = plt.subplots()
 ax.plot(times, pop_avg, color = colors[3])
+ax.plot(times, [base_rate for i in times], color = colors[2])
 ax.set_xlabel("Time (ms)")
 ax.set_ylabel("Average Firing rate (Hz)")
 ax.set_title("Average Firing Rate over all Neurons & Conditions")
