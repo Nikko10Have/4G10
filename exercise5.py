@@ -33,7 +33,7 @@ def plot_trajectory(Z_proj, title, alt=False):
     # Plot the trajectories for all conditions in the same plot
     _, ax = plt.subplots()
     for i in range(108):
-        ax.plot(Z_proj[0, i, :], Z_proj[1, i, :], color=colors[i])
+        ax.plot(Z_proj[0, i, :], Z_proj[1, i, :], color=colors[i], alpha=0.5)
         cond_color.plot_start(Z_proj[0, i, 0], Z_proj[1, i, 0],
             colors[i], ax=ax, markersize=20)
         cond_color.plot_end(Z_proj[0, i, -1], Z_proj[1, i, -1],
@@ -53,9 +53,9 @@ Z = Z[:, :, mask]
 
 Z_1, P_fr = Z_proj(Z, 0)
 plot_trajectory(Z_1, "Fastest Rotation")
-#Z_2, P_fr1 = Z_proj(Z, 1)
-#plot_trajectory(Z_2, "2nd Fastest Rotation ")
-#Z_3, P_fr2 = Z_proj(Z, 2)
-#plot_trajectory(Z_3, "3rd Fastest Rotation ")
+Z_2, P_fr1 = Z_proj(Z, 1)
+plot_trajectory(Z_2, "2nd Fastest Rotation ")
+Z_3, P_fr2 = Z_proj(Z, 2)
+plot_trajectory(Z_3, "3rd Fastest Rotation ")
 
-#np.savez("Exercise_5.npz", P=[P_fr, P_fr1, P_fr2], Z_1=Z_1, Z_2=Z_2, Z_3=Z_3)
+np.savez("Exercise_5.npz", P=[P_fr, P_fr1, P_fr2], Z_1=Z_1, Z_2=Z_2, Z_3=Z_3)

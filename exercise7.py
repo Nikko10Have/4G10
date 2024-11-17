@@ -7,9 +7,6 @@ X = data["X"]
 times = data["times"]
 
 idx = np.where(times == -150)[0][0]
-print(idx)
-print(f"time: {times[idx]}")
-
 for i, values in enumerate(X):
     C = np.random.choice(108, (108 // 2,), replace=False)
     for j in C:
